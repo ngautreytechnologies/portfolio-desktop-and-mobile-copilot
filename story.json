@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Railworks Copilot - Field Engineer AI Agents",
+  "summary": "A mobile and desktop copilot for field engineers combining knowledge graphs, retrieval, and planning agents to speed diagnosis and resolution.",
+  "problem": "Field engineers rely on fragmented documentation (PDFs, manuals, tickets) and inconsistent expertise, causing long diagnosis times, duplicated work, and slow onboarding.",
+  "solution": "Built a multi-agent AI copilot that combines a Neo4j-based knowledge graph, retrieval-augmented search, and a planner/actor agent. Integrated with CMDB, ServiceNow, IoT telemetry, and imaging to provide step-by-step guidance, automated ticket triage, and contextual recommendations.",
+  "tech_stack": [
+    "Neo4j",
+    "Python",
+    "LangChain",
+    "Hugging Face Transformers",
+    "FastAPI",
+    "React Native",
+    "ServiceNow APIs",
+    "S3",
+    "AWS Lambda",
+    "Docker",
+    "Kubernetes"
+  ],
+  "overview": {
+    "architecture": {
+      "styles": ["Multi-Agent", "Knowledge Graph Driven", "Hybrid Retrieval + Reasoning"],
+      "key_components": [
+        "Knowledge graph (Neo4j) consolidating docs, tickets, and asset relationships",
+        "Retrieval layer with vector embeddings (FAISS/Pinecone)",
+        "Planner agent for task decomposition and tool selection",
+        "Mobile copilot UI with offline sync",
+        "Integrations with ticketing, CMDB, and IoT telemetry"
+      ]
+    },
+    "design_patterns": [
+      "Knowledge Graph + RAG",
+      "Agent orchestration",
+      "Human-in-the-loop verification",
+      "Edge-enabled mobile sync"
+    ]
+  },
+  "architecture": {
+    "style": "Agent-Oriented Knowledge-Graph Platform",
+    "key_components": [
+      "Neo4j knowledge graph",
+      "Embedding store (FAISS/Pinecone)",
+      "LLM inference (HF or managed LLM)",
+      "Planner & Executor agents",
+      "Mobile UI (React Native)",
+      "API gateway & ingestion"
+    ],
+    "diagram_url": "https://example.com/railworks-copilot-architecture.png"
+  },
+  "challenges": [
+    "Merging heterogeneous data sources with lineage and trust scoring",
+    "Designing low-latency retrieval for mobile users",
+    "Ensuring agents take safe, verifiable actions (audit trail)",
+    "Managing offline-first mobile behaviour and synchronization"
+  ],
+  "impact": {
+    "metrics": {
+      "diagnosis_time_reduction": "Average diagnosis time reduced from 120 minutes to 12 minutes",
+      "escalation_reduction": "Escalations reduced by 60%",
+      "adoption_rate": "Adopted by 1,000+ engineers within 3 months"
+    },
+    "business_outcome": "Improved field productivity, faster onboarding, reduced downtime and operational costs."
+  },
+  "links": {
+    "github": "https://github.com/your-username/railworks-copilot",
+    "demo": "https://demo.railworks.example",
+    "docs": "https://docs.railworks.example"
+  },
+  "media": [
+    { "type": "image", "url": "https://example.com/screenshots/copilot-mobile.png", "caption": "Mobile copilot guidance" },
+    { "type": "diagram", "url": "https://example.com/railworks-copilot-architecture.png", "caption": "Agent + graph architecture" }
+  ],
+  "timeline": { "start": "2023-09", "end": "2024-02" },
+  "tags": [
+    { "name": "AI Agents", "summary": "Planner and executor agents for field tasks" },
+    { "name": "Neo4j", "summary": "Knowledge graph for assets & documentation" },
+    { "name": "RAG", "summary": "Retrieval-augmented answers with embeddings" }
+  ],
+  "flow": {
+    "steps": [
+      { "id": "1", "type": "ingest", "name": "Data Consolidation", "action": "Ingest docs, tickets, CMDB into Neo4j and vector store" },
+      { "id": "2", "type": "retrieve", "name": "Context Retrieval", "action": "Retrieve relevant docs and past tickets via semantic search" },
+      { "id": "3", "type": "plan", "name": "Plan & Decompose", "action": "Planner agent decomposes task into steps and selects tools" },
+      { "id": "4", "type": "assist", "name": "Execute Assist", "action": "Copilot provides step-by-step instructions and logs outcomes" },
+      { "id": "5", "type": "close", "name": "Triage & Close", "action": "Auto-populate ticket updates and propose next steps" }
+    ]
+  }
+}
